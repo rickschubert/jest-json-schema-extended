@@ -32,7 +32,10 @@ const objectToTest = {
     ]
 }
 
-const {dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems, exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema} = require("jest-json-schema-extended")
+const {
+    dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems,
+    exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema
+} = require("jest-json-schema-extended")
 
 const schema = strictObject({
     id: uuidType,
@@ -70,85 +73,85 @@ setup()
 ## objectType
 Asserts that the property is an object.
 
-**Kind**: global variable
+
 <a name="stringType"></a>
 
 ## stringType
 Asserts that the property is a string. The string is not allowed to be empty - use stringTypeCanBeEmpty instead if emptiness is needed.
 
-**Kind**: global variable
+
 <a name="stringTypeCanBeEmpty"></a>
 
 ## stringTypeCanBeEmpty
 Asserts that the property is a string. Allows the string to be empty.
 
-**Kind**: global variable
+
 <a name="urlType"></a>
 
 ## urlType
 Asserts that the property is a string looking like an URL.
 
-**Kind**: global variable
+
 <a name="dateTime"></a>
 
 ## dateTime
 Asserts that the property is a string in date-time format.
 
-**Kind**: global variable
+
 <a name="uuidType"></a>
 
 ## uuidType
 Asserts that the property is a string looking like a UUID.
 
-**Kind**: global variable
+
 <a name="stringTypePath"></a>
 
 ## stringTypePath
 Asserts that the property is a string looking like a UNIX path.
 
-**Kind**: global variable
+
 <a name="stringTypeOrNull"></a>
 
 ## stringTypeOrNull
 Asserts that the property is either a string (with at least 1 character) or `null`.
 
-**Kind**: global variable
+
 <a name="numberType"></a>
 
 ## numberType
 Asserts that the property is a number.
 
-**Kind**: global variable
+
 <a name="nullType"></a>
 
 ## nullType
 Asserts that the property holds the value `null`.
 
-**Kind**: global variable
+
 <a name="booleanType"></a>
 
 ## booleanType
 Asserts that the property is a boolean.
 
-**Kind**: global variable
+
 <a name="arrayType"></a>
 
 ## arrayType
 Asserts that the property is an array.
 
-**Kind**: global variable
+
 <a name="arrayOfObjectsType"></a>
 
 ## arrayOfObjectsType
 Loosely asserts that the property is an array of objects.
 
-**Kind**: global variable
+
 <a name="expectToMatchSchema"></a>
 
 ## expectToMatchSchema(object, schema)
 Assert that an object matches a JSON schema. Prints out errors if mismatches found.
 
-**Kind**: global function
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -160,7 +163,7 @@ Assert that an object matches a JSON schema. Prints out errors if mismatches fou
 ## strictObject(properties, [options])
 Asserts that the object contains all the properties specified - additonal properties are not allowed.
 
-**Kind**: global function
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -172,7 +175,7 @@ Asserts that the object contains all the properties specified - additonal proper
 ## objectWithRequiredProps(properties)
 Asserts that the object contains all the properties specified - additional properties are allowed.
 
-**Kind**: global function
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -183,7 +186,7 @@ Asserts that the object contains all the properties specified - additional prope
 ## arrayOfItems(itemSchema, options)
 Assert a JSON schema against each array item.
 
-**Kind**: global function
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -195,7 +198,7 @@ Assert a JSON schema against each array item.
 ## stringTypeMatching(regex)
 Asserts that the property is a string matching the regular expression provided.
 
-**Kind**: global function
+
 
 | Param | Type |
 | --- | --- |
@@ -206,7 +209,7 @@ Asserts that the property is a string matching the regular expression provided.
 ## stringTypeExact(expStr)
 Asserts that the property is exactly the string as specified.
 
-**Kind**: global function
+
 
 | Param | Type |
 | --- | --- |
@@ -217,7 +220,7 @@ Asserts that the property is exactly the string as specified.
 ## exactly(valueExpected)
 Asserts that the property is exactly the value as specified. Can be anything - an object, an array, a string, a boolean, ...
 
-**Kind**: global function
+
 
 | Param | Type |
 | --- | --- |
@@ -228,7 +231,7 @@ Asserts that the property is exactly the value as specified. Can be anything - a
 ## arrayTypeOfLength(length)
 Asserts that the property is an array of the exactly specified length.
 
-**Kind**: global function
+
 
 | Param | Type |
 | --- | --- |
@@ -239,7 +242,7 @@ Asserts that the property is an array of the exactly specified length.
 ## isJsonSchema(toBeDetermined)
 Helper function to check whether the passed in object is a JSON schema or a plain object.
 
-**Kind**: global function
+
 
 | Param | Type |
 | --- | --- |

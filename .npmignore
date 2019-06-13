@@ -1,0 +1,8 @@
+src/
+tsconfig.json
+prettier.config.js
+.env
+.eslintrc
+.eslintignore
+**/*.ts
+

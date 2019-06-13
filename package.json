@@ -1,0 +1,55 @@
+{
+    "name": "typescript-boilerplate-rickschubert",
+    "version": "0.0.2",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint '**/*.ts'",
+        "watch": "npm run build -- --watch",
+        "precommit": "lint-staged",
+        "build": "rm -rf dist && node_modules/typescript/bin/tsc",
+        "release": "chmod +x release.sh && ./release.sh",
+        "document": "./node_modules/jsdoc-to-markdown/bin/cli.js -m none -g none dist/index.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "linters": {
+            "*.js": [
+                "prettier --write",
+                "eslint --fix",
+                "git add"
+            ],
+            "*.ts": [
+                "prettier --write",
+                "eslint --fix",
+                "git add"
+            ],
+            "*.json": [
+                "prettier --write",
+                "git add"
+            ]
+        }
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^12.0.8",
+        "@typescript-eslint/eslint-plugin": "^1.10.2",
+        "@typescript-eslint/parser": "^1.10.2",
+        "jest-json-schema": "^2.0.2",
+        "typescript": "^3.5.1"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-rickschubert": "^1.0.10",
+        "husky": "^2.1.0",
+        "jsdoc-to-markdown": "^5.0.0",
+        "lint-staged": "^8.1.5",
+        "prettier": "^1.18.2",
+        "tslint": "^5.17.0"
+    }
+}

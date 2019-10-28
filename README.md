@@ -215,6 +215,28 @@ Asserts that the property is exactly the string as specified.
 | --- | --- |
 | expStr | <code>String</code> |
 
+<a name="numberTypeGreaterThan"></a>
+
+## numberTypeGreaterThan(minimum)
+Asserts that the property is a number greater than the given number.
+
+
+
+| Param | Type |
+| --- | --- |
+| minimum | <code>Number</code> |
+
+<a name="numberTypeLessThan"></a>
+
+## numberTypeLessThan(maximum)
+Asserts that the property is a number less than the given number.
+
+
+
+| Param | Type |
+| --- | --- |
+| maximum | <code>Number</code> |
+
 <a name="exactly"></a>
 
 ## exactly(valueExpected)
@@ -225,6 +247,17 @@ Asserts that the property is exactly the value as specified. Can be anything - a
 | Param | Type |
 | --- | --- |
 | valueExpected | <code>any</code> |
+
+<a name="oneOf"></a>
+
+## oneOf(valuesExpected)
+Asserts that the property received is one of the values given in the array.
+
+
+
+| Param | Type |
+| --- | --- |
+| valuesExpected | <code>Array.&lt;any&gt;</code> |
 
 <a name="arrayTypeOfLength"></a>
 

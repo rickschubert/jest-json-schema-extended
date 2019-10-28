@@ -158,6 +158,24 @@ export const numberType: json4.schema = {
 }
 
 /**
+ * Asserts that the property is a number greater than the given number.
+ * @param {Number} minimum
+ */
+export const numberTypeGreaterThan = (minimum: number): json4.schema => ({
+    type: "number",
+    minimum,
+})
+
+/**
+ * Asserts that the property is a number less than the given number.
+ * @param {Number} maximum
+ */
+export const numberTypeLessThan = (maximum: number): json4.schema => ({
+    type: "number",
+    maximum,
+})
+
+/**
  * Asserts that the property holds the value `null`.
  */
 export const nullType: json4.schema = {
@@ -177,6 +195,14 @@ export const booleanType: json4.schema = {
  */
 export const exactly = (valueExpected: any) => ({
     enum: [valueExpected],
+})
+
+/**
+ * Asserts that the property received is one of the values given in the array.
+ * @param {Array<any>} valuesExpected
+ */
+export const oneOf = (valuesExpected: any[]) => ({
+    enum: valuesExpected,
 })
 
 /**

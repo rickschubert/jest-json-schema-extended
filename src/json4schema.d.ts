@@ -11,6 +11,8 @@ declare namespace json4 {
         format?: "date-time" | "uuid"
         pattern?: string
         items?: schema
+        minimum?: number
+        maximum?: number
     }
 }
 

@@ -5,4 +5,4 @@ prettier.config.js
 .eslintrc
 .eslintignore
 **/*.ts
-
+!**/*.d.ts

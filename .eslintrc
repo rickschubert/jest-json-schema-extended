@@ -24,5 +24,17 @@
     },
     "globals": {
       "expect": true
-    }
+    },
+    "overrides": [
+      {
+        "files": ["src/tests/**/*.ts"],
+        "globals": {
+          "describe": true,
+          "it": true,
+          "beforeAll": true,
+          "beforeEach": true,
+          "jest": true
+        }
+      }
+    ]
   }

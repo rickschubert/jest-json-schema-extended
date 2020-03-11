@@ -11,5 +11,5 @@
         "allowSyntheticDefaultImports": true
     },
     "include": ["./**/*"],
-    "exclude": ["./node_modules", "./dist", "prettier.config.js"]
+    "exclude": ["./node_modules", "./dist", "prettier.config.js", "jest.config.js"]
 }

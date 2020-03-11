@@ -5,6 +5,12 @@ An extension of the popular [jest-json-schema](https://www.npmjs.com/package/jes
 
 # Example
 ```js
+const {
+    dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems,
+    exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema,
+    objectWithRequiredProps,
+} = require("jest-json-schema-extended")
+
 const objectToTest = {
     id: "47bddd19-e142-45ee-8679-463be8763022",
     enabled: false,
@@ -16,9 +22,9 @@ const objectToTest = {
             lastName: "Robson",
             firstName: "",
             additionalInfo: {
-                favouriteTvShow: "The Simpsons"
+                favouriteTvShow: "The Simpsons",
                 goodAtCooking: false,
-            }
+            },
         },
         {
             id: 2,
@@ -26,16 +32,11 @@ const objectToTest = {
             firstName: "Doris",
             additionalInfo: {
                 favouriteTvShow: "Parks & Recreation",
-                married: true
-            }
+                married: true,
+            },
         },
-    ]
+    ],
 }
-
-const {
-    dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems,
-    exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema
-} = require("jest-json-schema-extended")
 
 const schema = strictObject({
     id: uuidType,

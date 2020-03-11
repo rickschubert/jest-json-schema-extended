@@ -10,7 +10,8 @@
         "build": "rm -rf dist && node_modules/typescript/bin/tsc",
         "release": "bash release.sh",
         "document": "./node_modules/jsdoc-to-markdown/bin/cli.js -m none -g none dist/index.js",
-        "readme-cleanup": "sed -i -e 's/^\\*\\*Kind\\*\\*: .*$//g' ./README.md"
+        "readme-cleanup": "sed -i -e 's/^\\*\\*Kind\\*\\*: .*$//g' ./README.md",
+        "test": "jest"
     },
     "husky": {
         "hooks": {
@@ -46,9 +47,11 @@
         "typescript": "^3.5.1"
     },
     "devDependencies": {
+        "@types/jest": "^25.1.4",
         "eslint": "^5.16.0",
         "eslint-config-rickschubert": "^1.0.10",
         "husky": "^2.1.0",
+        "jest": "^25.1.0",
         "jsdoc-to-markdown": "^5.0.0",
         "lint-staged": "^8.1.5",
         "prettier": "^1.18.2",

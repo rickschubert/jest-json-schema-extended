@@ -213,6 +213,11 @@ export const exactly = (valueExpected: any) => ({
 })
 
 /**
+ * Asserts that the property hold the value `undefined`.
+ */
+export const undefinedType = exactly(undefined)
+
+/**
  * Asserts that the property received is one of the values given in the array.
  * @param {Array<any>} valuesExpected
  */

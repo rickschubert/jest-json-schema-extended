@@ -205,19 +205,6 @@ export const booleanType: Json4Schema = {
 }
 
 /**
- * Asserts that the property is exactly the value as specified. Can be anything - an object, an array, a string, a boolean, ...
- * @param {any} valueExpected
- */
-export const exactly = (valueExpected: any) => ({
-    enum: [valueExpected],
-})
-
-/**
- * Asserts that the property hold the value `undefined`.
- */
-export const undefinedType = exactly(undefined)
-
-/**
  * Asserts that the property received is one of the values given in the array.
  * @param {Array<any>} valuesExpected
  */
@@ -240,6 +227,14 @@ export const arrayTypeOfLength = (length: number): Json4Schema => ({
     type: "array",
     minItems: length,
     maxItems: length,
+})
+
+/**
+ * Asserts that the property is exactly the value as specified. Can be anything - an object, an array, a string, a boolean, ...
+ * @param {any} valueExpected
+ */
+export const exactly = (valueExpected: any) => ({
+    enum: [valueExpected],
 })
 
 /**

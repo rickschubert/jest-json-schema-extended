@@ -1,4 +1,5 @@
 import {prettyPrintObject} from "./general"
+import { throwErrorIfNotACorrectJsonSchema } from "./errorHandlingForIncorrectSchemas"
 
 export interface Json4Schema {
     type: string | string[]
@@ -22,6 +23,7 @@ export interface Json4Schema {
  */
 export const expectToMatchSchema = (object: object, schema: Json4Schema) => {
     try {
+        throwErrorIfNotACorrectJsonSchema(schema)
         expect(object).toMatchSchema(schema)
     } catch (error) {
         error.message = `${

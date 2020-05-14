@@ -7,3 +7,6 @@ prettier.config.js
 .eslintignore
 **/*.ts
 !**/*.d.ts
+release.sh
+jest.config.js
+README.md-e

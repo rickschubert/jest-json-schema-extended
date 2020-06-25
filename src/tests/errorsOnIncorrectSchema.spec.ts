@@ -1,5 +1,5 @@
-import { expectToMatchSchema } from ".."
-import { errorMsgForIncorrectSchema } from "../errorHandlingForIncorrectSchemas"
+import {expectToMatchSchema} from ".."
+import {errorMsgForIncorrectSchema} from "../errorHandlingForIncorrectSchemas"
 
 describe("Errors on incorrect schema", () => {
     it("errors if an incorrect jSON schema is supplied", () => {

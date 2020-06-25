@@ -6,8 +6,17 @@ An extension of the popular [jest-json-schema](https://www.npmjs.com/package/jes
 # Example
 ```js
 const {
-    dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems,
-    exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema,
+    dateTime,
+    strictObject,
+    uuidType,
+    numberType,
+    booleanType,
+    arrayOfItems,
+    anyOf,
+    exactly,
+    stringType,
+    stringTypeCanBeEmpty,
+    expectToMatchSchema,
     objectWithRequiredProps,
 } = require("jest-json-schema-extended")
 
@@ -24,6 +33,7 @@ const objectToTest = {
             additionalInfo: {
                 favouriteTvShow: "The Simpsons",
                 goodAtCooking: false,
+                propertyThatCanHaveVaryingTypes: "Hello",
             },
         },
         {
@@ -33,6 +43,7 @@ const objectToTest = {
             additionalInfo: {
                 favouriteTvShow: "Parks & Recreation",
                 married: true,
+                propertyThatCanHaveVaryingTypes: 42,
             },
         },
     ],
@@ -43,14 +54,20 @@ const schema = strictObject({
     enabled: booleanType,
     created: dateTime,
     requestors: exactly([]),
-    owners: arrayOfItems(strictObject({
-        id: numberType,
-        lastName: stringType,
-        firstName: stringTypeCanBeEmpty,
-        additionalInfo: objectWithRequiredProps({
-            favouriteTvShow: stringType,
+    owners: arrayOfItems(
+        strictObject({
+            id: numberType,
+            lastName: stringType,
+            firstName: stringTypeCanBeEmpty,
+            additionalInfo: objectWithRequiredProps({
+                favouriteTvShow: stringType,
+                propertyThatCanHaveVaryingTypes: anyOf([
+                    stringType,
+                    numberType,
+                ]),
+            }),
         })
-    }))
+    ),
 })
 
 expectToMatchSchema(objectToTest, schema)
@@ -194,6 +211,17 @@ Assert a JSON schema against each array item.
 | itemSchema |  |  |
 | options | <code>Object</code> | Accepts an option property `minItems` which can be used to check that the array contains at least x amount of items. |
 
+<a name="anyOf"></a>
+
+## anyOf(itemSchemas)
+Assert that the property is one of the provided JSON schemas.
+
+
+
+| Param |
+| --- |
+| itemSchemas |
+
 <a name="stringTypeMatching"></a>
 
 ## stringTypeMatching(regex)
@@ -238,17 +266,6 @@ Asserts that the property is a number less than the given number.
 | --- | --- |
 | maximum | <code>Number</code> |
 
-<a name="exactly"></a>
-
-## exactly(valueExpected)
-Asserts that the property is exactly the value as specified. Can be anything - an object, an array, a string, a boolean, ...
-
-
-
-| Param | Type |
-| --- | --- |
-| valueExpected | <code>any</code> |
-
 <a name="oneOf"></a>
 
 ## oneOf(valuesExpected)
@@ -270,6 +287,17 @@ Asserts that the property is an array of the exactly specified length.
 | Param | Type |
 | --- | --- |
 | length | <code>Number</code> |
+
+<a name="exactly"></a>
+
+## exactly(valueExpected)
+Asserts that the property is exactly the value as specified. Can be anything - an object, an array, a string, a boolean, ...
+
+
+
+| Param | Type |
+| --- | --- |
+| valueExpected | <code>any</code> |
 
 <a name="isJsonSchema"></a>
 

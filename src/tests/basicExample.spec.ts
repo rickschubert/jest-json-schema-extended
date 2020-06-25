@@ -1,6 +1,16 @@
 const {
-    dateTime, strictObject, uuidType, numberType, booleanType, arrayOfItems,
-    exactly, stringType, stringTypeCanBeEmpty, expectToMatchSchema, objectWithRequiredProps,
+    dateTime,
+    strictObject,
+    uuidType,
+    numberType,
+    booleanType,
+    arrayOfItems,
+    anyOf,
+    exactly,
+    stringType,
+    stringTypeCanBeEmpty,
+    expectToMatchSchema,
+    objectWithRequiredProps,
 } = require("../index")
 
 describe("Basic example", () => {
@@ -18,6 +28,7 @@ describe("Basic example", () => {
                     additionalInfo: {
                         favouriteTvShow: "The Simpsons",
                         goodAtCooking: false,
+                        propertyThatCanHaveVaryingTypes: "Hello",
                     },
                 },
                 {
@@ -27,6 +38,7 @@ describe("Basic example", () => {
                     additionalInfo: {
                         favouriteTvShow: "Parks & Recreation",
                         married: true,
+                        propertyThatCanHaveVaryingTypes: 42,
                     },
                 },
             ],
@@ -37,14 +49,20 @@ describe("Basic example", () => {
             enabled: booleanType,
             created: dateTime,
             requestors: exactly([]),
-            owners: arrayOfItems(strictObject({
-                id: numberType,
-                lastName: stringType,
-                firstName: stringTypeCanBeEmpty,
-                additionalInfo: objectWithRequiredProps({
-                    favouriteTvShow: stringType,
-                }),
-            })),
+            owners: arrayOfItems(
+                strictObject({
+                    id: numberType,
+                    lastName: stringType,
+                    firstName: stringTypeCanBeEmpty,
+                    additionalInfo: objectWithRequiredProps({
+                        favouriteTvShow: stringType,
+                        propertyThatCanHaveVaryingTypes: anyOf([
+                            stringType,
+                            numberType,
+                        ]),
+                    }),
+                })
+            ),
         })
 
         expectToMatchSchema(objectToTest, schema)

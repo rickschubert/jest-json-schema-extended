@@ -1,5 +1,5 @@
 import {prettyPrintObject} from "./general"
-import { throwErrorIfNotACorrectJsonSchema } from "./errorHandlingForIncorrectSchemas"
+import {throwErrorIfNotACorrectJsonSchema} from "./errorHandlingForIncorrectSchemas"
 
 export interface Json4Schema {
     type: string | string[]
@@ -14,6 +14,11 @@ export interface Json4Schema {
     items?: Json4Schema
     minimum?: number
     maximum?: number
+    anyOf?: Json4Schema[]
+}
+
+interface AnyOfJson4Schema {
+    anyOf: Json4Schema[]
 }
 
 /**
@@ -86,6 +91,16 @@ export const arrayOfItems = (
         type: "array",
         items: itemSchema,
         minItems,
+    }
+}
+
+/**
+ * Assert that the property is one of the provided JSON schemas.
+ * @param itemSchemas
+ */
+export const anyOf = (itemSchemas: Json4Schema[]): AnyOfJson4Schema => {
+    return {
+        anyOf: itemSchemas,
     }
 }
 

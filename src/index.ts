@@ -175,14 +175,6 @@ export const stringTypePath: Json4Schema = {
 }
 
 /**
- * Asserts that the property is either a string (with at least 1 character) or `null`.
- */
-export const stringTypeOrNull: Json4Schema = {
-    type: ["string", "null"],
-    minLength: 1,
-}
-
-/**
  * Asserts that the property is a number.
  */
 export const numberType: Json4Schema = {

@@ -7,6 +7,6 @@ removeLocalTags() {
 removeLocalTags
 npm run lint
 npm run build
-npm version patch
+npm version minor
 git push --tags
 npm publish

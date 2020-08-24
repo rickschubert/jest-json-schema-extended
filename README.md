@@ -128,12 +128,6 @@ Asserts that the property is a string looking like a UUID.
 Asserts that the property is a string looking like a UNIX path.
 
 
-<a name="stringTypeOrNull"></a>
-
-## stringTypeOrNull
-Asserts that the property is either a string (with at least 1 character) or `null`.
-
-
 <a name="numberType"></a>
 
 ## numberType

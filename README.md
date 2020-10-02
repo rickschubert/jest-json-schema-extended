@@ -173,14 +173,14 @@ Assert that an object matches a JSON schema. Prints out errors if mismatches fou
 <a name="strictObject"></a>
 
 ## strictObject(properties, [options])
-Asserts that the object contains all the properties specified - additonal properties are not allowed.
+Asserts that the object contains all the properties specified - additional properties are not allowed.
 
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | properties | <code>Object</code> | Asserts for any key on the object that the property exists. Example: `{propOne: stringType, propTwo: numberType}` |
-| [options] | <code>Object</code> | Accepts a property `optionalProps` hich can be a list of optional properties that don't need to be present. |
+| [options] | <code>Object</code> | Accepts a property `optionalProps` which can be a list of optional properties that don't need to be present. |
 
 <a name="objectWithRequiredProps"></a>
 

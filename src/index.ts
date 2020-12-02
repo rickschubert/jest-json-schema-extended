@@ -66,12 +66,19 @@ export const strictObject = (
  * Asserts that the object contains all the properties specified - additional properties are allowed.
  * @param {Object} properties Asserts for any key on the object that the property exists. Example: `{propOne: stringType, propTwo: numberType}`
  */
-export const objectWithRequiredProps = (properties: object): Json4Schema => {
+export const objectWithRequiredProps = (properties: object, options: {
+    optionalProps?: string[]
+} = {}): Json4Schema => {
+    const required = options.optionalProps
+        ? Object.keys(properties).filter((objProp) => {
+            return !options.optionalProps.includes(objProp)
+        })
+        : Object.keys(properties)
     return {
         type: "object",
         properties,
         additionalProperties: true,
-        required: Object.keys(properties),
+        required,
     }
 }
 

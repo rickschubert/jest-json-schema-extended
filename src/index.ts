@@ -39,9 +39,9 @@ export const expectToMatchSchema = (object: object, schema: Json4Schema) => {
 }
 
 /**
- * Asserts that the object contains all the properties specified - additonal properties are not allowed.
+ * Asserts that the object contains all the properties specified - additional properties are not allowed.
  * @param {Object} properties Asserts for any key on the object that the property exists. Example: `{propOne: stringType, propTwo: numberType}`
- * @param {Object} [options] Accepts a property `optionalProps` hich can be a list of optional properties that don't need to be present.
+ * @param {Object} [options] Accepts a property `optionalProps` which can be a list of optional properties that don't need to be present.
  */
 export const strictObject = (
     properties: object,

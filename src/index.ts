@@ -22,18 +22,18 @@ interface AnyOfJson4Schema {
 }
 
 /**
- * Assert that an object matches a JSON schema. Prints out errors if mismatches found.
- * @param {Object} object The JSON object to test.
+ * Assert that a value matches a JSON schema. Prints out errors if mismatches found.
+ * @param {Object} value The JSON object or value (string, boolean etc.) to test.
  * @param {Object} schema The JSON schema to test the object against.
  */
-export const expectToMatchSchema = (object: object, schema: Json4Schema) => {
+export const expectToMatchSchema = (value: any, schema: Json4Schema) => {
     try {
         throwErrorIfNotACorrectJsonSchema(schema)
-        expect(object).toMatchSchema(schema)
+        expect(value).toMatchSchema(schema)
     } catch (error) {
         error.message = `${
             error.message
-        }\nSchema mismatch. Actual result:\n${prettyPrintObject(object)}\n`
+        }\nSchema mismatch. Actual result:\n${prettyPrintObject(value)}\n`
         throw error
     }
 }

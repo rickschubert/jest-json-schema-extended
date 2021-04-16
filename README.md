@@ -160,14 +160,14 @@ Loosely asserts that the property is an array of objects.
 
 <a name="expectToMatchSchema"></a>
 
-## expectToMatchSchema(object, schema)
-Assert that an object matches a JSON schema. Prints out errors if mismatches found.
+## expectToMatchSchema(value, schema)
+Assert that a value matches a JSON schema. Prints out errors if mismatches found.
 
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| object | <code>Object</code> | The JSON object to test. |
+| value | <code>Object</code> | The JSON object or value (string, boolean etc.) to test. |
 | schema | <code>Object</code> | The JSON schema to test the object against. |
 
 <a name="strictObject"></a>
